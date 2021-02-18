@@ -1,0 +1,21 @@
+﻿@model List<VistaPedidos>
+<div class="mx-auto">
+    <h1 class="text-center">Pedidos</h1>
+    <ul class="list-group list-group-flush">
+        @foreach (VistaPedidos pedido in Model) {
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="~/images/@pedido.Portada" class="img-fluid"
+                             style="width:200px!important; height:250px!important;" />
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="card-title">@pedido.Titulo</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@pedido.Precio €</h6>
+                        <h6 class="card-subtitle mb-2">Fecha Compra: @pedido.Fecha.ToString("dd/MM/yyyy")</h6>
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>

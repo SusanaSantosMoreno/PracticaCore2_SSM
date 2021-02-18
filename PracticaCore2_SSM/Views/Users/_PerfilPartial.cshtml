@@ -1,0 +1,14 @@
+﻿@model Usuario
+    <div class="card mb-3 p-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="~/images/@Model.Foto" class="img-fluid" alt="@Model.Nombre">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Nombre @Model.Apellidos</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@Model.Email</h6>
+                </div>
+            </div>
+        </div>
+    </div>

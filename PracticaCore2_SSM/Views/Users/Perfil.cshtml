@@ -1,0 +1,28 @@
+﻿<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <a href="#" id="perfil"> Perfil </a>
+            </li>
+            <li class="list-group-item">
+                <a href="#" id="pedidos"> Pedidos </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-8" id="vistas"></div>
+</div>
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#vistas").load("/Users/GetPerfilPartial");
+
+            $("#perfil").click(function () {
+                $("#vistas").load("/Users/GetPerfilPartial");
+            });
+
+            $("#pedidos").click(function () {
+                $("#vistas").load("/Users/GetPedidosPartial");
+            });
+        });
+    </script>
+}

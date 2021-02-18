@@ -1,0 +1,25 @@
+﻿@model Libro
+@{ 
+    String genero = ViewData["genero"] as String;
+}
+<div class="row">
+    <div class="col-4">
+        <img src="~/images/@Model.Portada" class="card-img-top" alt="@Model.Titulo" />
+    </div>
+    <div class="col-8">
+        <h4>@Model.Titulo · <span class="col text-muted">@genero</span></h4>
+        <div class="row mb-3">
+            <a class="col-2 text-dark font-weight-bold" asp-action="Index" asp-controller="Home"> Volver </a>
+            <a class="col text-dark font-weight-bold" asp-action="Index" asp-controller="Home"
+               asp-route-libroComprado="@Model.IdLibro"> Comprar </a>
+        </div>
+        <h6>Autor:</h6>
+        <p>@Model.Autor</p>
+        <h6>Editorial:</h6>
+        <p>@Model.Editorial</p>
+        <h6>Argumento:</h6>
+        <p>@Model.Resumen</p>
+        <h6>Precio:</h6>
+        <p>@Model.Precio €</p>
+    </div>
+</div>

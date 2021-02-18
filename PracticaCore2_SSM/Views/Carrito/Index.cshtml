@@ -1,0 +1,34 @@
+﻿@model List<Libro>
+@{ 
+    String precioFinal = ViewData["PrecioFinal"] as String;
+}
+<div class="w-50 mx-auto">
+    <h1 class="text-center">Carrito</h1>
+    <ul class="list-group list-group-flush">
+        @foreach (Libro libro in Model) {
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="~/images/@libro.Portada" class="img-fluid"
+                             style="width:200px!important; height:250px!important;" />
+                    </div>
+                    <div class="col-md-8">
+                        <h5 class="card-title">@libro.Titulo · @libro.Autor</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@libro.Precio €</h6>
+                    </div>
+                </div>
+            </li>
+        }
+        <div class="row">
+            <div class="col">
+                <h4 class="text-right">
+                    <a asp-action="FinalizarCompra" asp-controller="Carrito">Finalizar Compra</a>
+                </h4>
+            </div>
+            <div class="col">
+                <h4 class="text-right">Precio final: @precioFinal €</h4>
+            </div>
+        </div>
+    </ul>
+</div>
+

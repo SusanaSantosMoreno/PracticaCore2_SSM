@@ -1,0 +1,47 @@
+﻿@model List<LibroPag>
+@{
+    int numPagina = 1;
+    int registros = (int)ViewData["registros"];
+}
+<div class="row">
+    <div class=" col-md-4">
+        <div id="capaGeneros"></div>
+    </div>
+    <div class="col-md-8">
+        @if (ViewData["Genero"] == null) {
+            <div class="text-center mb-5 w-75">
+                @for (int i = 1; i <= registros; i += 6) {
+                    <a asp-action="Index"
+                       asp-controller="Home" asp-route-posicion="@i"
+                       class="text-dark" style="font-size: 1rem">@numPagina |</a>
+                    numPagina += 1;
+                }
+            </div>
+        }
+
+        <div class="row">
+            @foreach (LibroPag libro in Model) {
+                <div class="col-md-4">
+                    <div class="card p-3 mb-3 shadow p-3 mb-5 bg-white rounded" style="height: 550px !important;">
+                        <img src="~/images/@libro.Portada" class="card-img-top" alt="@libro.Titulo">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a asp-action="DetalleLibro" asp-controller="Home"
+                                   asp-route-idLibro="@libro.IdLibro">@libro.Titulo</a>
+                            </h5>
+                            <h6 class="card-subtitle mb-2 text-muted">@libro.Autor · @libro.Editorial</h6>
+                            <p class="card-text">@libro.Precio €</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#capaGeneros").load("/Generos/GetGeneros");
+        });
+    </script>
+}
