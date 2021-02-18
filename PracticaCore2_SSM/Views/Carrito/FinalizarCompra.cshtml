@@ -1,10 +1,10 @@
 ﻿
 <div class="w-50 mx-auto">
-    <h1 class="text-center">Finalizar Compra</h1>
+    <h1 class="text-center mb-3">Finalizar Compra</h1>
     <ul class="list-group list-group-flush">
         <form method="post">
             @foreach (Libro libro in Model) {
-                <li class="list-group-item">
+                <li class="list-group-item border-left-0 border-right-0">
                     <div class="row">
                         <div class="col-md-4">
                             <img src="~/images/@libro.Portada" class="img-fluid"
@@ -21,7 +21,7 @@
                     </div>
                 </li>
             }
-            <button type="submit" class="btn btn-outline-dark">Comprar</button>
+            <button type="submit" class="btn btn-outline-dark mt-3 w-100">Comprar</button>
         </form>
     </ul>
 </div>
